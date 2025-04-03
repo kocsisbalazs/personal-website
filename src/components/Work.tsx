@@ -1,96 +1,68 @@
+
 import { motion } from "framer-motion";
 import { TextScramble } from "./TextScramble";
+import { Skeleton } from "@/components/ui/skeleton";
 import ReactMarkdown from 'react-markdown';
-import { useState, useEffect } from 'react';
-
+import bioContent from '../content/bio.md?raw';
 
 const projects = [
   {
-    title: "BeeSafe",
-    description: "Buzz through barcodes and find food thats right for you",
+    title: "Project Management Dashboard",
+    description: "A modern dashboard for agile teams with custom task views and analytics.",
     image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
     link: "#",
   },
   {
-    title: "Audio Book Builder",
+    title: "AI-Powered Analytics",
     description: "Machine learning algorithms that provide actionable business insights.",
     image: "https://images.unsplash.com/photo-1518770660439-4636190af475",
     link: "#",
   },
   {
-    title: "Online epub, PDF reader",
+    title: "E-commerce Platform",
     description: "Scalable online shopping solution with integrated payment processing.",
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6",
     link: "#",
   },
   {
-    title: "Substack RAG",
+    title: "Mobile App Development",
     description: "Cross-platform mobile applications with seamless user experiences.",
     image: "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6",
     link: "#",
   },
   {
-    title: "GIS Analytics",
+    title: "Cloud Infrastructure",
     description: "Robust cloud solutions with automated scaling and deployment.",
     image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
     link: "#",
   },
   {
-    title: "Hungarian Youth Association",
+    title: "Blockchain Solutions",
     description: "Secure and transparent blockchain applications for various industries.",
     image: "https://images.unsplash.com/photo-1639762681057-408e52192e55",
     link: "#",
   },
   {
-    title: "OpenBook",
-    description: "Connecting student with startups in the youngest city of Denmark",
+    title: "Data Visualization Platform",
+    description: "Interactive dashboards that transform complex data into actionable insights.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
     link: "#",
   },
   {
-    title: "Pioneer Aarhus",
-    description: "Thinking beyond the classroom. Building beyond expectations",
+    title: "Cybersecurity Suite",
+    description: "Advanced threat detection and prevention for enterprise networks.",
     image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3",
     link: "#",
   },
   {
-    title: "Markly",
-    description: "SwiftUI based Markdown Editor",
+    title: "AR/VR Experiences",
+    description: "Immersive augmented and virtual reality solutions for education and entertainment.",
     image: "https://images.unsplash.com/photo-1535223289827-42f1e9919769",
     link: "#",
   },
 ];
 
-// Fallback content in case fetch fails
-const fallbackContent = `I have been working on a series of investments, incubations, and operating companies focused on the technology future.`;
-
 export const Work = () => {
-  const [content, setContent] = useState(fallbackContent);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchContent = async () => {
-      try {
-        // Make sure the URL is correct - it should be relative to your base URL
-        const response = await fetch('/work.md');
-        
-        if (!response.ok) {
-          throw new Error(`Failed to fetch: ${response.status}`);
-        }
-        
-        const text = await response.text();
-        setContent(text);
-      } catch (error) {
-        console.error('Error fetching markdown:', error);
-        // Keep using fallback content
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchContent();
-  }, []);
-
   return (
     <section className="py-20 relative" id="work">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -99,18 +71,16 @@ export const Work = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-32 backdrop-blur-xl bg-white/5 rounded-2xl p-8 border border-white/10 shadow-2xl"
+          className="mb-32 dark-blur-panel p-8"
         >
-          <div className="prose prose-invert max-w-none prose-headings:text-white prose-p:text-white/90 prose-li:text-white/90 prose-strong:text-white">
-            {isLoading ? (
-              <p>Loading content...</p>
-            ) : (
-              <ReactMarkdown>{content}</ReactMarkdown>
-            )}
+          <div className="prose prose-invert max-w-none">
+            <ReactMarkdown className="text-white/90 prose prose-invert prose-headings:text-white prose-headings:font-semibold prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl prose-p:text-white/80 prose-p:my-4 prose-li:text-white/90 prose-li:marker:text-white/90 prose-a:text-blue-400 hover:prose-a:text-blue-300 prose-a:transition-colors prose-code:bg-black/40 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-strong:text-white prose-strong:font-bold prose-em:text-white/90 prose-em:italic">
+              {bioContent}
+            </ReactMarkdown>
           </div>
         </motion.div>
 
-        <div className="backdrop-blur-xl bg-white/5 rounded-2xl p-8 border border-white/10 shadow-2xl">
+        <div className="dark-blur-panel p-8">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

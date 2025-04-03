@@ -39,14 +39,14 @@
     @apply border-border font-['Inter'];
   }
   body {
-    @apply bg-[#1A1F2C] text-foreground antialiased;
-    background: linear-gradient(to bottom right, #1A1F2C, #222632);
+    @apply bg-[#131519] text-foreground antialiased;
+    background: linear-gradient(to bottom right, #131519, #1A1F28);
     min-height: 100vh;
   }
 }
 
 .glass-card {
-  @apply backdrop-blur-xl bg-white/5 rounded-xl shadow-xl;
+  @apply backdrop-blur-xl bg-black/40 rounded-xl shadow-xl border border-white/10;
 }
 
 .nav-link {
@@ -54,16 +54,119 @@
 }
 
 .hero-glass {
-  @apply backdrop-blur-xl bg-white/5 rounded-3xl shadow-2xl;
+  @apply backdrop-blur-xl bg-black/40 rounded-3xl shadow-2xl border border-white/10;
 }
 
 .work-card {
-  @apply backdrop-blur-lg bg-white/5 rounded-xl shadow-xl transition-all duration-300;
+  @apply backdrop-blur-lg bg-black/40 rounded-xl shadow-xl transition-all duration-300 border border-white/10;
   &:hover {
-    @apply bg-white/10 transform -translate-y-1;
+    @apply bg-black/60 transform -translate-y-1;
   }
 }
 
 .contact-form {
   @apply backdrop-blur-xl rounded-xl;
+}
+
+.neo-blur {
+  @apply backdrop-blur-2xl bg-black/40 border border-white/10;
+}
+
+.article-card {
+  @apply backdrop-blur-lg bg-black/40 rounded-xl shadow-xl transition-all duration-300 border border-white/10;
+  &:hover {
+    @apply bg-black/60 transform -translate-y-1;
+  }
+}
+
+.dark-blur-panel {
+  @apply backdrop-blur-xl bg-black/60 rounded-2xl border border-white/10 shadow-2xl;
+}
+
+.article-dialog {
+  @apply backdrop-blur-xl bg-black/60 border border-white/10 rounded-lg text-white shadow-2xl;
+}
+
+.dialog-content {
+  @apply bg-black/60 backdrop-blur-xl border-white/10 text-white;
+}
+
+.prose pre {
+  @apply bg-black/60 border border-white/10 rounded-lg p-4 my-4 overflow-x-auto;
+}
+
+.prose code {
+  @apply bg-black/40 px-1.5 py-0.5 rounded text-blue-300 font-mono text-sm;
+}
+
+.prose pre code {
+  @apply bg-transparent text-white/90 p-0 text-sm leading-relaxed;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-white/20 pl-4 text-white/80 italic;
+}
+
+.prose table {
+  @apply border-collapse my-6;
+}
+
+.prose th {
+  @apply bg-black/40 border border-white/10 px-4 py-2 text-left;
+}
+
+.prose td {
+  @apply border border-white/10 px-4 py-2;
+}
+
+.prose img {
+  @apply rounded-lg my-6;
+}
+
+.prose a {
+  @apply text-blue-400 hover:text-blue-300 transition-colors;
+}
+
+.prose ul, .prose ol {
+  @apply pl-6 my-4;
+}
+
+.prose ul li {
+  @apply list-disc mb-2;
+}
+
+.prose ol li {
+  @apply list-decimal mb-2;
+}
+
+.prose strong {
+  @apply font-bold text-white;
+}
+
+.prose em {
+  @apply italic text-white/90;
+}
+
+.prose p {
+  @apply my-4;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  @apply font-semibold text-white mt-6 mb-4;
+}
+
+.prose h1 {
+  @apply text-3xl;
+}
+
+.prose h2 {
+  @apply text-2xl;
+}
+
+.prose h3 {
+  @apply text-xl;
+}
+
+.header-blur {
+  @apply bg-black/60 backdrop-blur-xl border-b border-white/5;
 }
